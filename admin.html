@@ -1,267 +1,237 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Admin Paneli - Demo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #212121;
-            color: white;
-            padding: 1rem 2rem;
-            text-align: center;
-        }
-        #loginForm, #adminPanel {
-            max-width: 600px;
-            margin: 3rem auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        input, textarea, button {
-            width: 100%;
-            padding: 0.7rem;
-            margin: 0.5rem 0 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        button {
-            background: #DC2525;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #b91f1f;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 0.8rem;
-            text-align: left;
-        }
-        th {
-            background: #f0f0f0;
-        }
-        .edit-btn, .delete-btn {
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 4px;
-            border: none;
-            font-weight: 600;
-        }
-        .edit-btn {
-            background: #4caf50;
-            color: white;
-        }
-        .edit-btn:hover {
-            background: #3e8e41;
-        }
-        .delete-btn {
-            background: #f44336;
-            color: white;
-            margin-left: 5px;
-        }
-        .delete-btn:hover {
-            background: #d32f2f;
-        }
-        #logoutBtn {
-            background: #555;
-            margin-top: 1rem;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Admin Panel - Kement Studios</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 700px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background: #f9f9f9;
+        color: #222;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    form {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+    label {
+        display: block;
+        margin-top: 1rem;
+        font-weight: bold;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        margin-top: 0.3rem;
+    }
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 0.5rem;
+        font-size: 1rem;
+        margin-top: 0.3rem;
+    }
+    button {
+        margin-top: 1rem;
+        background-color: #DC2525;
+        color: white;
+        border: none;
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #b91f1f;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    li {
+        background: white;
+        margin-bottom: 10px;
+        padding: 0.7rem;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+    .page-title {
+        font-weight: bold;
+        cursor: pointer;
+        flex-grow: 1;
+        margin-right: 1rem;
+    }
+    .actions button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: #DC2525;
+        font-weight: bold;
+        margin-left: 0.5rem;
+    }
+    .actions button:hover {
+        color: #b91f1f;
+    }
+    .message {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: green;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Kement Studios - Admin Paneli</h1>
-    </header>
 
-    <!-- Giriş Formu -->
-    <div id="loginForm">
-        <h2>Giriş Yap</h2>
-        <input type="text" id="username" placeholder="Kullanıcı Adı" />
-        <input type="password" id="password" placeholder="Parola" />
-        <button onclick="login()">Giriş</button>
-        <p id="loginError" style="color:red; display:none;">Kullanıcı adı veya parola yanlış!</p>
-    </div>
+<h1>Admin Panel - Sayfa Yönetimi</h1>
 
-    <!-- Admin Paneli -->
-    <div id="adminPanel" style="display:none;">
-        <h2>Sayfalar</h2>
-        <table>
-            <thead>
-                <tr><th>Başlık</th><th>İçerik</th><th>İşlemler</th></tr>
-            </thead>
-            <tbody id="pagesTableBody"></tbody>
-        </table>
+<div class="message" id="message"></div>
 
-        <h3 id="formTitle">Yeni Sayfa Ekle</h3>
-        <input type="text" id="pageTitle" placeholder="Sayfa Başlığı" />
-        <textarea id="pageContent" rows="5" placeholder="Sayfa İçeriği"></textarea>
-        <button onclick="savePage()">Kaydet</button>
-        <button id="cancelEditBtn" style="display:none; background:#777;" onclick="cancelEdit()">İptal</button>
+<form id="pageForm">
+    <input type="hidden" id="pageIndex" value="-1" />
+    <label for="pageTitle">Sayfa Başlığı</label>
+    <input type="text" id="pageTitle" required placeholder="Sayfa başlığını girin" />
+    <label for="pageContent">Sayfa İçeriği (HTML destekli)</label>
+    <textarea id="pageContent" required placeholder="Sayfa içeriğini girin"></textarea>
+    <button type="submit">Kaydet</button>
+</form>
 
-        <button id="logoutBtn" onclick="logout()">Çıkış Yap</button>
-    </div>
+<h2>Oluşturulan Sayfalar</h2>
+<ul id="pagesList"></ul>
 
 <script>
-    // Demo kullanıcı
-    const DEMO_USERNAME = "admin";
-    const DEMO_PASSWORD = "12345";
+    const form = document.getElementById("pageForm");
+    const pagesList = document.getElementById("pagesList");
+    const message = document.getElementById("message");
+    const pageIndexInput = document.getElementById("pageIndex");
+    const pageTitleInput = document.getElementById("pageTitle");
+    const pageContentInput = document.getElementById("pageContent");
 
-    let editingIndex = null;
-
-    // Login işlemi
-    function login() {
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
-        const errorMsg = document.getElementById("loginError");
-
-        if (username === DEMO_USERNAME && password === DEMO_PASSWORD) {
-            errorMsg.style.display = "none";
-            document.getElementById("loginForm").style.display = "none";
-            document.getElementById("adminPanel").style.display = "block";
-            loadPages();
-        } else {
-            errorMsg.style.display = "block";
-        }
-    }
-
-    // Çıkış yap
-    function logout() {
-        document.getElementById("loginForm").style.display = "block";
-        document.getElementById("adminPanel").style.display = "none";
-        document.getElementById("username").value = "";
-        document.getElementById("password").value = "";
-        editingIndex = null;
-        clearForm();
-    }
-
-    // Sayfa verilerini localStorage'dan getir
+    // Sayfaları localStorage'dan al
     function getPages() {
-        const pagesJSON = localStorage.getItem("pages");
-        return pagesJSON ? JSON.parse(pagesJSON) : [];
+        return JSON.parse(localStorage.getItem("pages") || "[]");
     }
 
-    // Sayfa verilerini localStorage'a kaydet
+    // Sayfaları kaydet
     function savePages(pages) {
         localStorage.setItem("pages", JSON.stringify(pages));
     }
 
-    // Sayfaları tabloya yükle
-    function loadPages() {
+    // Sayfaları listele
+    function renderPages() {
         const pages = getPages();
-        const tbody = document.getElementById("pagesTableBody");
-        tbody.innerHTML = "";
+        pagesList.innerHTML = "";
 
-        pages.forEach((page, index) => {
-            const tr = document.createElement("tr");
+        if (pages.length === 0) {
+            pagesList.innerHTML = "<li>Henüz sayfa oluşturulmadı.</li>";
+            return;
+        }
 
-            const tdTitle = document.createElement("td");
-            tdTitle.textContent = page.title;
-            tr.appendChild(tdTitle);
+        pages.forEach((page, i) => {
+            const li = document.createElement("li");
 
-            const tdContent = document.createElement("td");
-            tdContent.textContent = page.content.length > 50 ? page.content.substring(0,50) + "..." : page.content;
-            tr.appendChild(tdContent);
+            const titleSpan = document.createElement("span");
+            titleSpan.textContent = page.title;
+            titleSpan.className = "page-title";
+            titleSpan.title = "Sayfayı önizle";
+            titleSpan.onclick = () => {
+                // Önizleme için sayfa görüntüleyiciye gönder (localStorage'da indeks bazlı)
+                localStorage.setItem("currentPageIndex", i);
+                window.open("site.html", "_blank");
+            };
 
-            const tdActions = document.createElement("td");
+            const actionsDiv = document.createElement("div");
+            actionsDiv.className = "actions";
 
             const editBtn = document.createElement("button");
             editBtn.textContent = "Düzenle";
-            editBtn.className = "edit-btn";
-            editBtn.onclick = () => editPage(index);
+            editBtn.onclick = () => editPage(i);
 
             const deleteBtn = document.createElement("button");
             deleteBtn.textContent = "Sil";
-            deleteBtn.className = "delete-btn";
-            deleteBtn.onclick = () => deletePage(index);
+            deleteBtn.onclick = () => deletePage(i);
 
-            tdActions.appendChild(editBtn);
-            tdActions.appendChild(deleteBtn);
+            actionsDiv.appendChild(editBtn);
+            actionsDiv.appendChild(deleteBtn);
 
-            tr.appendChild(tdActions);
-
-            tbody.appendChild(tr);
+            li.appendChild(titleSpan);
+            li.appendChild(actionsDiv);
+            pagesList.appendChild(li);
         });
     }
 
-    // Yeni sayfa ekle veya düzenle
-    function savePage() {
-        const title = document.getElementById("pageTitle").value.trim();
-        const content = document.getElementById("pageContent").value.trim();
+    // Sayfa düzenleme
+    function editPage(index) {
+        const pages = getPages();
+        const page = pages[index];
+        pageIndexInput.value = index;
+        pageTitleInput.value = page.title;
+        pageContentInput.value = page.content;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Sayfa silme
+    function deletePage(index) {
+        if (!confirm("Sayfayı silmek istediğinize emin misiniz?")) return;
+        let pages = getPages();
+        pages.splice(index, 1);
+        savePages(pages);
+        renderPages();
+        showMessage("Sayfa başarıyla silindi.");
+    }
+
+    // Mesaj göster
+    function showMessage(text) {
+        message.textContent = text;
+        setTimeout(() => { message.textContent = ""; }, 3000);
+    }
+
+    // Form gönderildiğinde sayfa ekle/güncelle
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const title = pageTitleInput.value.trim();
+        const content = pageContentInput.value.trim();
 
         if (!title || !content) {
-            alert("Lütfen başlık ve içerik giriniz!");
+            alert("Lütfen tüm alanları doldurun.");
             return;
         }
 
         let pages = getPages();
+        const index = parseInt(pageIndexInput.value);
 
-        if (editingIndex === null) {
-            // Yeni sayfa ekle
-            pages.push({title, content});
+        if (index >= 0) {
+            // Güncelle
+            pages[index] = { title, content };
+            showMessage("Sayfa başarıyla güncellendi.");
         } else {
-            // Var olan sayfayı güncelle
-            pages[editingIndex] = {title, content};
+            // Yeni sayfa ekle
+            pages.push({ title, content });
+            showMessage("Sayfa başarıyla oluşturuldu.");
         }
 
         savePages(pages);
-        loadPages();
-        clearForm();
-        editingIndex = null;
-        document.getElementById("formTitle").textContent = "Yeni Sayfa Ekle";
-        document.getElementById("cancelEditBtn").style.display = "none";
-    }
+        renderPages();
+        form.reset();
+        pageIndexInput.value = -1;
+    });
 
-    // Düzenleme moduna al
-    function editPage(index) {
-        const pages = getPages();
-        const page = pages[index];
-        document.getElementById("pageTitle").value = page.title;
-        document.getElementById("pageContent").value = page.content;
-        editingIndex = index;
-        document.getElementById("formTitle").textContent = "Sayfa Düzenle";
-        document.getElementById("cancelEditBtn").style.display = "inline-block";
-    }
-
-    // Düzenlemeyi iptal et
-    function cancelEdit() {
-        clearForm();
-        editingIndex = null;
-        document.getElementById("formTitle").textContent = "Yeni Sayfa Ekle";
-        document.getElementById("cancelEditBtn").style.display = "none";
-    }
-
-    // Formu temizle
-    function clearForm() {
-        document.getElementById("pageTitle").value = "";
-        document.getElementById("pageContent").value = "";
-    }
-
-    // Sayfa sil
-    function deletePage(index) {
-        if (confirm("Bu sayfayı silmek istediğinizden emin misiniz?")) {
-            let pages = getPages();
-            pages.splice(index,1);
-            savePages(pages);
-            loadPages();
-        }
-    }
+    // İlk yüklemede sayfaları listele
+    renderPages();
 </script>
 </body>
 </html>
