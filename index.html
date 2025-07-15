@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReGenerationGym - Yeniden Doğuş Fitness</title>
+    <title>Kement Studios - Dijital Ajans</title>
+    <meta name="description" content="Kement Studios: Web tasarımı, sosyal medya yönetimi, kurumsal kimlik ve dijital pazarlama hizmetleri sunan yaratıcı dijital ajans.">
+    <meta name="keywords" content="dijital ajans, web tasarımı, sosyal medya yönetimi, logo tasarımı, kurumsal kimlik, SEO, içerik üretimi, e-ticaret sitesi, mobil uygulama tasarımı, UI UX, marka konumlandırma">
+
+    <link rel="icon" href="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -12,88 +16,137 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: #000;
-            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #222831;
+            background-color: #1a1a1a;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
-        /* Header */
+        /* Header Styles */
         header {
-            background: rgba(0, 0, 0, 0.9);
+            background-color: rgba(33, 33, 33, 0.95);
             backdrop-filter: blur(10px);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 15px 0;
-            border-bottom: 2px solid #00ff00;
+            box-shadow: 0 2px 20px rgba(220, 37, 37, 0.1);
         }
 
-        nav {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #00ff00;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            height: 50px;
+            filter: drop-shadow(0 0 10px rgba(220, 37, 37, 0.3));
         }
 
-        .nav-links {
-            display: flex;
+        nav ul {
             list-style: none;
+            display: flex;
             gap: 30px;
         }
 
-        .nav-links a {
-            color: #fff;
+        nav a {
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: #00ff00;
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #DC2525, #ff6600);
+            transition: width 0.3s ease;
         }
 
-        .contact-btn {
-            background: #00ff00;
-            color: #000;
-            padding: 12px 25px;
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #DC2525;
+            text-shadow: 0 0 10px rgba(220, 37, 37, 0.5);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
             border: none;
-            border-radius: 5px;
-            font-weight: bold;
+            color: white;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
         }
 
-        .contact-btn:hover {
-            background: #fff;
-            transform: translateY(-2px);
+        /* Floating Particles */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(220, 37, 37, 0.4), transparent);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+            50% { 
+                transform: translateY(-100px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 6s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 8s; }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23111" width="1200" height="800"/><path fill="%23222" d="M0 400L200 350L400 450L600 300L800 400L1000 250L1200 350V800H0Z"/></svg>');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
+            background: linear-gradient(135deg, #212121 0%, #393E46 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            margin-top: 80px;
             position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
@@ -103,574 +156,659 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%2300ff00" opacity="0.3"/><circle cx="80" cy="30" r="1.5" fill="%2300ff00" opacity="0.2"/><circle cx="50" cy="70" r="1" fill="%2300ff00" opacity="0.4"/></svg>');
-            animation: float 6s ease-in-out infinite;
+            background: linear-gradient(45deg, transparent, rgba(220, 37, 37, 0.1), transparent);
+            animation: heroGlow 3s ease-in-out infinite alternate;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        @keyframes heroGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         .hero-content {
+            position: relative;
             z-index: 2;
-            max-width: 600px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
+            font-size: 3rem;
             margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: #00ff00;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(220, 37, 37, 0.5);
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            line-height: 1.6;
             opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-btn {
-            background: linear-gradient(45deg, #00ff00, #00cc00);
-            color: #000;
-            padding: 15px 35px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3);
-        }
-
-        /* Moving Text Banner */
-        .moving-banner {
-            background: #00ff00;
-            color: #000;
-            padding: 15px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            margin-top: 50px;
-        }
-
-        .moving-text {
+        .cta-button {
+            background: linear-gradient(45deg, #DC2525, #ff6600);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
             display: inline-block;
-            animation: scroll 20s linear infinite;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
         }
 
-        /* Programs Section */
-        .programs {
-            padding: 100px 0;
-            background: #111;
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 37, 37, 0.3);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 50px;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(220, 37, 37, 0.3);
         }
 
-        .section-title h2 span {
-            color: #00ff00;
-        }
-
-        .programs-grid {
+        /* Updated Card Styles - Removed RGB borders */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            padding: 20px 0;
         }
 
-        .program-card {
-            background: linear-gradient(135deg, #222, #333);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+        .card {
             position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
             overflow: hidden;
+            min-height: 280px;
+            color: white;
         }
 
-        .program-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, #00ff00, transparent);
-            animation: rotate 4s linear infinite;
-            z-index: 1;
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(220, 37, 37, 0.2);
+            border-color: rgba(220, 37, 37, 0.3);
         }
 
-        .program-card::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            background: linear-gradient(135deg, #222, #333);
-            border-radius: 13px;
+        .card-content {
+            position: relative;
             z-index: 2;
         }
 
-        .program-card > * {
-            position: relative;
-            z-index: 3;
-        }
-
-        @keyframes rotate {
-            100% { transform: rotate(360deg); }
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 0, 0.2);
-        }
-
-        .program-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #00ff00, #00cc00);
-            border-radius: 50%;
-            margin: 0 auto 20px;
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #DC2525;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            text-shadow: 0 0 20px rgba(220, 37, 37, 0.5);
         }
 
-        .program-card h3 {
+        .card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #00ff00;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(220, 37, 37, 0.3);
         }
 
-        .program-card p {
+        .card p {
             line-height: 1.6;
             opacity: 0.9;
+            margin-bottom: 15px;
+            color: #ffffff;
         }
 
-        /* Journey Section */
-        .journey {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #000, #111);
-        }
-
-        .journey-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .journey-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
-            color: #00ff00;
-        }
-
-        .journey-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .journey-image {
+        .btn {
+            background: linear-gradient(45deg, #DC2525, #ff6600);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
             position: relative;
-            border-radius: 20px;
             overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .journey-image::before {
+        .btn::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(0, 255, 0, 0.3), rgba(0, 0, 0, 0.3));
-            z-index: 2;
-        }
-
-        .placeholder-image {
+            left: -100%;
             width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #333, #555);
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(220, 37, 37, 0.3);
+        }
+
+        /* Project Cards with Images */
+        .project-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #00ff00;
-            position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+            min-height: 350px;
         }
 
-        .placeholder-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="%23222" width="400" height="400"/><path fill="%23333" d="M0 200L100 150L200 250L300 100L400 200V400H0Z"/><circle cx="100" cy="100" r="30" fill="%2300ff00" opacity="0.3"/><circle cx="300" cy="300" r="40" fill="%2300ff00" opacity="0.2"/></svg>');
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(220, 37, 37, 0.2);
+            border-color: rgba(220, 37, 37, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
             background-size: cover;
-            opacity: 0.5;
-        }
-
-        /* Atmosphere Section */
-        .atmosphere {
-            padding: 100px 0;
-            background: #111;
-        }
-
-        .atmosphere-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-        }
-
-        .atmosphere-item {
-            height: 300px;
-            background: linear-gradient(135deg, #333, #555);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
+            background-position: center;
+            background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
         }
 
-        .atmosphere-item::before {
+        .card-image::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.3));
-            opacity: 0;
-            transition: opacity 0.3s;
+            background: linear-gradient(45deg, rgba(220, 37, 37, 0.1), transparent);
         }
 
-        .atmosphere-item:hover::before {
-            opacity: 1;
-        }
-
-        .atmosphere-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 255, 0, 0.2);
-        }
-
-        .atmosphere-item span {
-            color: #00ff00;
-            font-weight: bold;
-            font-size: 1.1rem;
-            z-index: 2;
+        .project-content {
+            padding: 25px;
             position: relative;
+            z-index: 2;
         }
 
-        /* Daily Workouts */
-        .workouts {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #000, #111);
+        .project-content h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(220, 37, 37, 0.3);
         }
 
-        .workouts-grid {
+        .project-content p {
+            color: #ffffff;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .workout-card {
-            background: linear-gradient(135deg, #222, #333);
-            border-radius: 15px;
-            padding: 25px;
+            gap: 40px;
             text-align: center;
-            transition: all 0.3s;
-            border: 1px solid #333;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .workout-card:hover {
+        .contact-item {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .contact-item:hover {
             transform: translateY(-5px);
-            border-color: #00ff00;
-            box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
+            box-shadow: 0 15px 30px rgba(220, 37, 37, 0.2);
+            border-color: rgba(220, 37, 37, 0.3);
         }
 
-        .workout-card h3 {
-            color: #00ff00;
-            margin-bottom: 15px;
+        .contact-item h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
             font-size: 1.3rem;
+            text-shadow: 0 0 10px rgba(220, 37, 37, 0.3);
         }
 
-        .workout-card p {
+        .contact-item p {
+            color: #ffffff;
             opacity: 0.9;
-            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
         /* Footer */
         footer {
-            background: #000;
-            padding: 50px 0;
-            border-top: 2px solid #00ff00;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            color: #00ff00;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #ccc;
-            line-height: 1.8;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #00ff00;
-        }
-
-        .footer-bottom {
+            background: linear-gradient(135deg, #212121 0%, #393E46 100%);
+            color: white;
+            padding: 40px 0 20px;
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            color: #666;
+            position: relative;
         }
 
-        /* Mobile Responsive */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #DC2525;
+            transform: scale(1.2);
+            text-shadow: 0 0 15px rgba(220, 37, 37, 0.5);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #DC2525;
+            text-shadow: 0 0 10px rgba(220, 37, 37, 0.5);
+        }
+
+        /* Cookie Notice */
+        .cookie-notice {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(33, 33, 33, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            z-index: 1001;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+            border-top: 1px solid rgba(220, 37, 37, 0.3);
+        }
+
+        .cookie-notice.show {
+            transform: translateY(0);
+        }
+
+        .cookie-notice p {
+            margin-bottom: 10px;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cookie-btn {
+            background: linear-gradient(45deg, #DC2525, #ff6600);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 37, 37, 0.3);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .header-content {
+                padding: 0 20px;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+
+            nav ul {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(33, 33, 33, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            nav ul.show {
+                display: flex;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
-            .journey-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .hero p {
+                font-size: 1rem;
             }
 
-            .programs-grid,
-            .atmosphere-grid,
-            .workouts-grid {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card-image {
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">ReGenerationGym</div>
-            <ul class="nav-links">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#trainers">Eğitmenlerimiz</a></li>
-                <li><a href="#services">Hizmetler</a></li>
-                <li><a href="#gallery">Galeri</a></li>
-                <li><a href="#contact">İletişim</a></li>
-            </ul>
-            <button class="contact-btn">Bize Ulaşın</button>
-        </nav>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Sağlık ve <span>Fitness</span> Yolculuğunuz</h1>
-                <p>Yaşam kalitesini artırmak ve sağlıklı yaşam hedeflerinize ulaşmak için güçlü antrenman, kardiyo kondisyonu ve modern ekipmanlar dahil olmak üzere geniş bir fitness hizmetleri yelpazesi sunuyoruz.</p>
-                <button class="cta-btn">Bugün Başla</button>
-            </div>
-        </div>
-    </section>
-
-    <div class="moving-banner">
-        <div class="moving-text">
-            ⭐ GÜÇLÜ OL ⭐ SAĞLIKLI YAŞA ⭐ GÜÇLÜ KAL ⭐ VÜCUDUNU YENİDEN İNŞA ET ⭐ GÜÇLÜ OL ⭐ SAĞLIKLI YAŞA ⭐ GÜÇLÜ KAL ⭐ VÜCUDUNU YENİDEN İNŞA ET
-        </div>
+    <!-- Floating Particles -->
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
-    <section class="programs" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Fitness <span>Programlarımız</span></h2>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-icon">💪</div>
-                    <h3>Temel Stabilite & Esneklik Antrenmanı</h3>
-                    <p>Vücut dengesini geliştiren, core gücünü artıran ve esnekliği maksimize eden özel antrenman programı.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">🏃</div>
-                    <h3>Fonksiyonel Hareket Antrenmanı</h3>
-                    <p>Günlük yaşamda ihtiyaç duyulan hareket kalıplarını geliştiren, fonksiyonel güç kazandıran program.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">🎯</div>
-                    <h3>Pilates Duruş & Güç Antrenmanı</h3>
-                    <p>Doğru duruş alışkanlığı kazandıran, deep core kaslarını güçlendiren Pilates temelli antrenman.</p>
-                </div>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" alt="Kement Studios Logo" class="logo">
+            <nav>
+                <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+                <ul id="nav-menu">
+                    <li><a href="#home">Anasayfa</a></li>
+                    <li><a href="/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/hizmetler">Hizmetler</a></li>
+                    <li><a href="/projeler">Projeler</a></li>
+                    <li><a href="/iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="container">
+                <h1>KEMENT STUDIOS</h1>
+                <p>Markanızı dijital dünyada öne çıkaran web tasarımı, kullanıcı odaklı arayüzler, mobil uygulamalar ve kurumsal kimlik çözümleriyle hayallerinizi gerçeğe dönüştürüyoruz.</p>
+                <a href="/iletisim" class="cta-button">İletişime Geçin</a>
             </div>
         </div>
     </section>
 
-    <section class="journey">
+    <!-- Services Section -->
+    <section class="section services-section">
         <div class="container">
-            <div class="journey-content">
-                <div class="journey-text">
-                    <h2>Dengeli sağlık, zindelik ve yaşam enerjisi elde etme yolculuğunuz</h2>
-                    <p>Fiziksel performansınızı artırmak, mental sağlığınızı güçlendirmek ve yaşam kalitenizi yükseltmek için tasarlanmış kapsamlı fitness programlarımız ile hedeflerinize ulaşın.</p>
-                    <p>Uzman eğitmen kadromuz ve modern ekipmanlarımızla, kişisel ihtiyaçlarınıza özel antrenman planları hazırlıyoruz. Her adımda yanınızdayız.</p>
-                    <button class="cta-btn">Daha Fazla Bilgi</button>
+            <h2 class="section-title">Hizmetler</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon">🌐</div>
+                        <h3>Web Tasarım & Kurulum</h3>
+                        <p>Modern, responsive ve SEO uyumlu web siteleri tasarlıyor ve kurulumunu gerçekleştiriyoruz. Markanızı dijital dünyada en iyi şekilde temsil edecek web çözümleri sunuyoruz.</p>
+                        <a href="/hizmetler" class="btn">Detaylar</a>
+                    </div>
                 </div>
-                <div class="journey-image">
-                    <div class="placeholder-image">
-                        <span>🏋️ Fitness Journey</span>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon">📱</div>
+                        <h3>Mobil Uygulama Tasarımı</h3>
+                        <p>iOS ve Android platformları için kullanıcı dostu mobil uygulama tasarımları gerçekleştiriyoruz. Mobil deneyimi en üst seviyeye çıkaran çözümler sunuyoruz.</p>
+                        <a href="/hizmetler" class="btn">Keşfet</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon">🛒</div>
+                        <h3>E-Ticaret Çözümleri</h3>
+                        <p>Online satış yapabileceğiniz, kullanıcı dostu e-ticaret siteleri tasarlıyor ve kuruyoruz. Satışlarınızı artıracak etkili e-ticaret çözümleri sunuyoruz.</p>
+                        <a href="/hizmetler" class="btn">Göster</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon">🎨</div>
+                        <h3>Kurumsal Kimlik Tasarımı</h3>
+                        <p>Logo tasarımından kurumsal kimlik çalışmalarına kadar, markanızın görsel kimliğini oluşturan tüm grafik tasarım hizmetlerini sunuyoruz.</p>
+                        <a href="/hizmetler" class="btn">Başla</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="atmosphere" id="gallery">
+    <!-- Projects Section -->
+    <section class="section">
         <div class="container">
-            <div class="section-title">
-                <h2>Spor Salonu <span>Atmosferimizi</span> Keşfedin</h2>
+            <h2 class="section-title">Projeler</h2>
+            <div class="cards-grid">
+                <div class="project-card">
+                    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/bag1.png')"></div>
+                    <div class="project-content">
+                        <h3>Post Tasarımı</h3>
+                        <p>Markanın imajına uygun şekilde sosyal medya postları yeniden dizayn edildi.</p>
+                        <a href="/projeler" class="btn">İncele</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/bag2.png')"></div>
+                    <div class="project-content">
+                        <h3>Post Tasarımı</h3>
+                        <p>Markanın imajına uygun şekilde sosyal medya postları yeniden dizayn edildi.</p>
+                        <a href="/projeler" class="btn">İncele</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/mobil1.png')"></div>
+                    <div class="project-content">
+                        <h3>Mobil Uygulama Tasarımı</h3>
+                        <p>Mobil uygulamanın arayüz tasarımları yeniden yapıldı.</p>
+                        <a href="/projeler" class="btn">İncele</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/pikselabi13.jpg')"></div>
+                    <div class="project-content">
+                        <h3>Post Tasarımı</h3>
+                        <p>Markanın imajına uygun şekilde sosyal medya postları yeniden dizayn edildi.</p>
+                        <a href="/projeler" class="btn">İncele</a>
+                    </div>
+                </div>
             </div>
-            <div class="atmosphere-grid">
-                <div class="atmosphere-item">
-                    <span>🏋️ Ağırlık Antrenman Alanı</span>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Hakkımızda</h2>
+            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon">🎯</div>
+                        <h3>Misyonumuz</h3>
+                        <p>Kement Studios olarak, her markanın kendine özgü hikayesini dijital dünyada en etkili şekilde anlatmasını sağlamak için yenilikçi, kullanıcı dostu ve estetik tasarım çözümleri sunuyoruz.</p>
+                    </div>
                 </div>
-                <div class="atmosphere-item">
-                    <span>🤸 Fonksiyonel Antrenman Alanı</span>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon">🚀</div>
+                        <h3>Vizyonumuz</h3>
+                        <p>Dijital tasarım ve teknolojide yaratıcı ve güvenilir bir rehber olarak, Türkiye'de ve uluslararası arenada markaların tercih ettiği ilk çözüm ortağı olmak.</p>
+                    </div>
                 </div>
-                <div class="atmosphere-item">
-                    <span>🏃 Kardiyovasküler Bölüm</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">İletişim</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📍 Adres</h3>
+                    <p>İstanbul, Avcılar</p>
                 </div>
-                <div class="atmosphere-item">
-                    <span>🧘 Yoga & Pilates Studio</span>
-                </div>
-                <div class="atmosphere-item">
-                    <span>🥊 Grup Fitness Sınıfları</span>
-                </div>
-                <div class="atmosphere-item">
-                    <span>💆 Dinlenme & Masaj Alanı</span>
+                <div class="contact-item">
+                    <h3>✉️ E-posta</h3>
+                    <p>bilgi@kementstudios.com</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="workouts" id="trainers">
+   <!-- Footer -->
+    <footer>
         <div class="container">
-            <div class="section-title">
-                <h2>Günlük <span>Antrenmanlar</span></h2>
+            <div class="social-links">
+                <a href="https://instagram.com/kementstudios" target="_blank" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/company/kementstudios" target="_blank" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
             </div>
-            <div class="workouts-grid">
-                <div class="workout-card">
-                    <h3>Sabah Güç Antrenmanı</h3>
-                    <p>Güne enerjik başlamanızı sağlayan yoğun güç antrenmanı. Tüm kas gruplarını hedefleyen etkili program.</p>
-                </div>
-                <div class="workout-card">
-                    <h3>Öğle Arası Hızlı Antrenman</h3>
-                    <p>Yoğun iş temposunda fit kalmanızı sağlayan 45 dakikalık ekspres antrenman programı.</p>
-                </div>
-                <div class="workout-card">
-                    <h3>Akşam Kondisyon Antrenmanı</h3>
-                    <p>Günün stresini atan, kardiyovasküler sağlığınızı geliştiren akşam kondisyon antrenmanı.</p>
-                </div>
-                <div class="workout-card">
-                    <h3>Hafta Sonu Grup Antrenmanı</h3>
-                    <p>Motivasyonu yüksek tutacak grup dinamiği ile gerçekleştirilen eğlenceli antrenman seansları.</p>
-                </div>
-                <div class="workout-card">
-                    <h3>Özel Kişisel Antrenman</h3>
-                    <p>Kişisel hedeflerinize özel tasarlanmış, uzman eğitmen eşliğinde birebir antrenman programı.</p>
-                </div>
-                <div class="workout-card">
-                    <h3>Rehabilitasyon Antrenmanı</h3>
-                    <p>Sakatlık sonrası toparlanma sürecini hızlandıran, fizik tedavi uzmanı eşliğinde özel program.</p>
-                </div>
+            <div class="footer-links">
+                <a href="/gizlilik">Gizlilik Politikası</a>
             </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ReGenerationGym</h3>
-                    <p>Sağlıklı yaşamın adresi. Modern ekipmanlar ve uzman eğitmen kadrosuyla fitness hedeflerinize ulaşın.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Hızlı Linkler</h3>
-                    <p><a href="#home">Ana Sayfa</a></p>
-                    <p><a href="#trainers">Eğitmenlerimiz</a></p>
-                    <p><a href="#services">Hizmetler</a></p>
-                    <p><a href="#gallery">Galeri</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>İletişim</h3>
-                    <p>📍 Merkez Mah. Fitness Cad. No: 123</p>
-                    <p>📞 +90 555 123 45 67</p>
-                    <p>✉️ info@regenerationgym.com</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Çalışma Saatleri</h3>
-                    <p>Pazartesi - Cuma: 06:00 - 23:00</p>
-                    <p>Cumartesi: 08:00 - 22:00</p>
-                    <p>Pazar: 10:00 - 20:00</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 ReGenerationGym. Tüm hakları saklıdır.</p>
-            </div>
+            <p>&copy; 2025 Kement Studios. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
+    <!-- Cookie Notice -->
+    <div class="cookie-notice" id="cookieNotice">
+        <div class="container">
+            <p>Bu web sitesi, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır. Siteyi kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn" onclick="acceptCookies()">Kabul Et</button>
+                <button class="cookie-btn" onclick="declineCookies()">Reddet</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Smooth scrolling for navigation links
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Cookie notice functionality
+        function showCookieNotice() {
+            const notice = document.getElementById('cookieNotice');
+            const cookieAccepted = localStorage.getItem('cookieAccepted');
+            
+            if (!cookieAccepted) {
+                notice.classList.add('show');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieAccepted', 'true');
+            hideCookieNotice();
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieAccepted', 'false');
+            hideCookieNotice();
+        }
+
+        function hideCookieNotice() {
+            const notice = document.getElementById('cookieNotice');
+            notice.classList.remove('show');
+        }
+
+        // Show cookie notice on page load
+        window.addEventListener('load', showCookieNotice);
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -683,39 +821,13 @@
                 }
             });
         });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.9)';
-            }
-        });
-
-        // Animate cards on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards
-        document.querySelectorAll('.program-card, .workout-card, .atmosphere-item').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
     </script>
-</body>
-</html>
+    <!-- SEO Meta Açıklama ve Anahtar Kelime Odaklı Gizli İçerik - Kement Studios -->
+<div style="display: none;">
+    Kement Studios; yaratıcı, yenilikçi ve çözüm odaklı bir dijital ajans olarak web tasarımı, kurumsal kimlik oluşturma, sosyal medya yönetimi ve dijital pazarlama alanlarında profesyonel hizmetler sunar. Markaların dijital dünyada fark yaratmasını sağlamak için özgün tasarımlar, kullanıcı dostu arayüzler ve stratejik içerik üretimi ile güçlü çözümler üretiriz.
+
+    Türkiye merkezli dijital ajans olan Kement Studios, modern web sitesi tasarımı, responsive mobil uyumlu arayüz geliştirme, SEO uyumlu içerik üretimi, sosyal medya içerik planlaması ve yönetimi, logo tasarımı, marka kimliği oluşturma, reklam kampanyası yönetimi gibi hizmetlerle hem bireysel girişimcilere hem de kurumsal markalara hizmet vermektedir.
+
+    Web tasarım ajansı arayanlar, profesyonel logo tasarımı hizmeti almak isteyenler, markasını dijitalde büyütmek isteyen işletme sahipleri, kurumsal kimliğini dijital ortama taşımak isteyen firmalar ve sosyal medya yönetimiyle hedef kitlesine ulaşmak isteyen girişimciler için Kement Studios doğru adrestir.
+
+    Özgün tasarım anlayışı, müşteri memnuniyeti odaklı yaklaşımı ve yaratıcı çözümleriyle Kement Studios, dijitalde başarıya ulaşmak isteyen tüm markalar için stratejik bir iş ortağıdır. Web sitenizi Google'da üst sıralara taşımak, markanızın dijital kimliğini güçlendirmek ve potansiyel müşterilere ulaşmak için bizim
