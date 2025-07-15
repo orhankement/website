@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Paneli - Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #212121;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        #loginForm, #adminPanel {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 0.7rem;
+            margin: 0.5rem 0 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            background: #DC2525;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #b91f1f;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        th {
+            background: #f0f0f0;
+        }
+        .edit-btn, .delete-btn {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: none;
+            font-weight: 600;
+        }
+        .edit-btn {
+            background: #4caf50;
+            color: white;
+        }
+        .edit-btn:hover {
+            background: #3e8e41;
+        }
+        .delete-btn {
+            background: #f44336;
+            color: white;
+            margin-left: 5px;
+        }
+        .delete-btn:hover {
+            background: #d32f2f;
+        }
+        #logoutBtn {
+            background: #555;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kement Studios - Admin Paneli</h1>
+    </header>
+
+    <!-- Giriş Formu -->
+    <div id="loginForm">
+        <h2>Giriş Yap</h2>
+        <input type="text" id="username" placeholder="Kullanıcı Adı" />
+        <input type="password" id="password" placeholder="Parola" />
+        <button onclick="login()">Giriş</button>
+        <p id="loginError" style="color:red; display:none;">Kullanıcı adı veya parola yanlış!</p>
+    </div>
+
+    <!-- Admin Paneli -->
+    <div id="adminPanel" style="display:none;">
+        <h2>Sayfalar</h2>
+        <table>
+            <thead>
+                <tr><th>Başlık</th><th>İçerik</th><th>İşlemler</th></tr>
+            </thead>
+            <tbody id="pagesTableBody"></tbody>
+        </table>
+
+        <h3 id="formTitle">Yeni Sayfa Ekle</h3>
+        <input type="text" id="pageTitle" placeholder="Sayfa Başlığı" />
+        <textarea id="pageContent" rows="5" placeholder="Sayfa İçeriği"></textarea>
+        <button onclick="savePage()">Kaydet</button>
+        <button id="cancelEditBtn" style="display:none; background:#777;" onclick="cancelEdit()">İptal</button>
+
+        <button id="logoutBtn" onclick="logout()">Çıkış Yap</button>
+    </div>
+
+<script>
+    // Demo kullanıcı
+    const DEMO_USERNAME = "admin";
+    const DEMO_PASSWORD = "12345";
+
+    let editingIndex = null;
+
+    // Login işlemi
+    function login() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const errorMsg = document.getElementById("loginError");
+
+        if (username === DEMO_USERNAME && password === DEMO_PASSWORD) {
+            errorMsg.style.display = "none";
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("adminPanel").style.display = "block";
+            loadPages();
+        } else {
+            errorMsg.style.display = "block";
+        }
+    }
+
+    // Çıkış yap
+    function logout() {
+        document.getElementById("loginForm").style.display = "block";
+        document.getElementById("adminPanel").style.display = "none";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        editingIndex = null;
+        clearForm();
+    }
+
+    // Sayfa verilerini localStorage'dan getir
+    function getPages() {
+        const pagesJSON = localStorage.getItem("pages");
+        return pagesJSON ? JSON.parse(pagesJSON) : [];
+    }
+
+    // Sayfa verilerini localStorage'a kaydet
+    function savePages(pages) {
+        localStorage.setItem("pages", JSON.stringify(pages));
+    }
+
+    // Sayfaları tabloya yükle
+    function loadPages() {
+        const pages = getPages();
+        const tbody = document.getElementById("pagesTableBody");
+        tbody.innerHTML = "";
+
+        pages.forEach((page, index) => {
+            const tr = document.createElement("tr");
+
+            const tdTitle = document.createElement("td");
+            tdTitle.textContent = page.title;
+            tr.appendChild(tdTitle);
+
+            const tdContent = document.createElement("td");
+            tdContent.textContent = page.content.length > 50 ? page.content.substring(0,50) + "..." : page.content;
+            tr.appendChild(tdContent);
+
+            const tdActions = document.createElement("td");
+
+            const editBtn = document.createElement("button");
+            editBtn.textContent = "Düzenle";
+            editBtn.className = "edit-btn";
+            editBtn.onclick = () => editPage(index);
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Sil";
+            deleteBtn.className = "delete-btn";
+            deleteBtn.onclick = () => deletePage(index);
+
+            tdActions.appendChild(editBtn);
+            tdActions.appendChild(deleteBtn);
+
+            tr.appendChild(tdActions);
+
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Yeni sayfa ekle veya düzenle
+    function savePage() {
+        const title = document.getElementById("pageTitle").value.trim();
+        const content = document.getElementById("pageContent").value.trim();
+
+        if (!title || !content) {
+            alert("Lütfen başlık ve içerik giriniz!");
+            return;
+        }
+
+        let pages = getPages();
+
+        if (editingIndex === null) {
+            // Yeni sayfa ekle
+            pages.push({title, content});
+        } else {
+            // Var olan sayfayı güncelle
+            pages[editingIndex] = {title, content};
+        }
+
+        savePages(pages);
+        loadPages();
+        clearForm();
+        editingIndex = null;
+        document.getElementById("formTitle").textContent = "Yeni Sayfa Ekle";
+        document.getElementById("cancelEditBtn").style.display = "none";
+    }
+
+    // Düzenleme moduna al
+    function editPage(index) {
+        const pages = getPages();
+        const page = pages[index];
+        document.getElementById("pageTitle").value = page.title;
+        document.getElementById("pageContent").value = page.content;
+        editingIndex = index;
+        document.getElementById("formTitle").textContent = "Sayfa Düzenle";
+        document.getElementById("cancelEditBtn").style.display = "inline-block";
+    }
+
+    // Düzenlemeyi iptal et
+    function cancelEdit() {
+        clearForm();
+        editingIndex = null;
+        document.getElementById("formTitle").textContent = "Yeni Sayfa Ekle";
+        document.getElementById("cancelEditBtn").style.display = "none";
+    }
+
+    // Formu temizle
+    function clearForm() {
+        document.getElementById("pageTitle").value = "";
+        document.getElementById("pageContent").value = "";
+    }
+
+    // Sayfa sil
+    function deletePage(index) {
+        if (confirm("Bu sayfayı silmek istediğinizden emin misiniz?")) {
+            let pages = getPages();
+            pages.splice(index,1);
+            savePages(pages);
+            loadPages();
+        }
+    }
+</script>
+</body>
+</html>
