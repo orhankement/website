@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kement Studios - Site Önizleme</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background: #fff;
+        color: #222;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 2rem;
+    }
+    li {
+        background: #f1f1f1;
+        margin-bottom: 10px;
+        padding: 0.7rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    li:hover {
+        background-color: #ddd;
+    }
+    #pageContent {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 1rem;
+        min-height: 200px;
+        background: #fafafa;
+    }
+    #backBtn {
+        display: none;
+        margin-bottom: 1rem;
+        background-color: #DC2525;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    #backBtn:hover {
+        background-color: #b91f1f;
+    }
+</style>
+</head>
+<body>
+
+<h1>Kement Studios - Sayfalar</h1>
+
+<ul id="pagesList"></ul>
+
+<button id="backBtn">Geri</button>
+
+<div id="pageContent"></div>
+
+<script>
+    const pagesList = document.getElementById("pagesList");
+    const pageContentDiv = document.getElementById("pageContent");
+    const backBtn = document.getElementById("backBtn");
+
+    let pages = JSON.parse(localStorage.getItem("pages") || "[]");
+
+    function renderPagesList() {
+        pageContentDiv.style.display = "none";
+        backBtn.style.display = "none";
+        pagesList.style.display = "block";
+
+        pagesList.innerHTML = "";
+        if (pages.length === 0) {
+            pagesList.innerHTML = "<li>Henüz sayfa yok.</li>";
+            return;
+        }
+
+        pages.forEach((page, i) => {
+            const li = document.createElement("li");
+            li.textContent = page.title;
+            li.onclick = () => showPage(i);
+            pagesList.appendChild(li);
+        });
+    }
+
+    function showPage(index) {
+        const page = pages[index];
+        pagesList.style.display = "none";
+        backBtn.style.display = "inline-block";
+        pageContentDiv.style.display = "block";
+
+        // İçerik HTML olarak gösteriliyor
+        pageContentDiv.innerHTML = page.content;
+    }
+
+    backBtn.onclick = () => {
+        renderPagesList();
+    };
+
+    // Sayfaları listele
+    renderPagesList();
+</script>
+
+</body>
+</html>
