@@ -3,109 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benim Sitem</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
-        }
-
-        header {
-            background: #0077b6;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        nav {
-            background: #023e8a;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            background: white;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #0077b6;
-            color: white;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-        }
-    </style>
+    <title>Elevate Your Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
+    <div class="background-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+    </div>
+
     <header>
-        <h1>Merhaba, Ben [İsmini Buraya Yaz]</h1>
-        <p>Web geliştirici ve tasarımcı</p>
+        <div class="logo">
+            <img src="https://i.ibb.co/9gX4dYd/logo-placeholder.png" alt="Website Logo">
+            <span>WebArchitects</span>
+        </div>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">CONTACT</a>
+        </nav>
+        <div class="header-right">
+            <a href="#" class="nav-button">SIGNUP</a>
+            <a href="#" class="nav-button">SUBSCRIBE</a>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="">
+            </div>
+        </div>
     </header>
 
-    <nav>
-        <a href="#hakkimda">Hakkımda</a>
-        <a href="#projeler">Projelerim</a>
-        <a href="#iletisim">İletişim</a>
-    </nav>
-
     <main>
-        <section id="hakkimda">
-            <h2>Hakkımda</h2>
-            <p>Merhaba! Ben [İsmin], [Yaşın] yaşındayım ve web teknolojilerine tutkuyla bağlıyım. HTML, CSS ve JavaScript ile modern web siteleri geliştiriyorum.</p>
-        </section>
-
-        <section id="projeler">
-            <h2>Projelerim</h2>
-            <ul>
-                <li><strong>Proje 1:</strong> Basit bir blog sitesi</li>
-                <li><strong>Proje 2:</strong> Hava durumu uygulaması</li>
-                <li><strong>Proje 3:</strong> Kişisel portfolyo sayfası</li>
-            </ul>
-        </section>
-
-        <section id="iletisim">
-            <h2>İletişim</h2>
-            <p>Benimle iletişime geçmek için: <a href="mailto:email@example.com">email@example.com</a></p>
-        </section>
+        <div class="content-left">
+            <h1>Elevate Your Experience</h1>
+            <h2>Your success is our business</h2>
+            <p class="address">SOF Qemer Street 68/my</p>
+            <p class="description">
+                timmty. ftx wam d gibn Mi snomy t tlevatictyour
+                potueotching sby iofus tce pnufeelent incalpre
+                tdnslkcbwh no lobbero dtc furest nol kivogrd ohrecb.
+            </p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="content-center">
+            <img src="https://i.ibb.co/bJCfFv1/illustration.png" alt="Person working on a laptop illustration">
+        </div>
+        <div class="content-right">
+             <p class="description-right">
+                kbodbor, dg pthk ftnres mfi warop
+                rtestdo Aufrcd dutce srote Up Sbdt dsd
+                wft bxkoriolts di f nd lpk hsidn ioulor de
+            </p>
+            <button class="action-button login">LOGIN</button>
+            <button class="action-button register">REGISTER</button>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 - Tüm hakları saklıdır.</p>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
