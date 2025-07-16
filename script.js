@@ -1,4 +1,4 @@
-// DOM yüklendikten sonra çalışacak kodlar
+ // DOM yüklendikten sonra çalışacak kodlar
 document.addEventListener('DOMContentLoaded', function() {
     
     // Elementleri seç
