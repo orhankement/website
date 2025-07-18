@@ -1,77 +1,187 @@
-<!DOCTYPE html> 
-<html lang="tr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elevate Your Experience</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collax - Creative Design Agency</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="background-shapes">
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="shape shape3"></div>
-        <div class="shape shape4"></div>
-    </div>
-    
-    <header class="site-header">
-        <div class="logo">
-            <img src="https://i.ibb.co/9gX4dYd/logo-placeholder.png" alt="WebArchitects Logo">
-            <span>WebArchitects</span>
-        </div>
-        
-        <nav class="main-nav">
-            <a href="#">HOME</a>
-            <a href="#">ABOUT</a>
-            <a href="#">CONTACT</a>
-        </nav>
-        
-        <div class="header-actions">
-            <a href="#" class="nav-button">SIGNUP</a>
-            <a href="#" class="nav-button">SUBSCRIBE</a>
-            <div class="search-container">
-                <i class="fas fa-search" aria-hidden="true"></i>
-                <input type="search" placeholder="Ara..." aria-label="Arama kutusu">
-            </div>
-        </div>
-    </header>
-    
-    <main class="site-main">
-        <section class="content-column column-left">
-            <h1 class="main-heading">Elevate Your Experience</h1>
-            <p class="sub-heading">Your success is our business</p>
-            
-            <p class="address-box">SOF Qemer Street 68/my</p>
-            
-            <p class="description">
-                Experience the power of innovative web solutions that transform your digital presence. Our expert team delivers cutting-edge designs and functionality that elevate your brand to new heights.
-            </p>
-            
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </section>
-        
-        <section class="content-column column-center">
-            <img src="https://i.ibb.co/bJCfFv1/illustration.png" alt="Dizüstü bilgisayarda çalışan bir kişi illüstrasyonu" class="main-illustration">
-        </section>
-        
-        <section class="content-column column-right">
-            <p class="description-right">
-                Join thousands of satisfied customers who have transformed their businesses with our innovative solutions. Start your journey today and discover what makes us different.
-            </p>
-            
-            <div class="action-buttons">
-                <button type="button" class="action-button login">LOGIN</button>
-                <button type="button" class="action-button register">REGISTER</button>
-            </div>
-        </section>
-    </main>
 
-    <script src="script.js"></script>
+  <!-- Navbar -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">Collax</div>
+      <nav class="nav">
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="hamburger"></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>We make things look good</h1>
+        <p>We design, develop and deliver beautiful websites and digital experiences.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">Talk to us</a>
+          <a href="#" class="btn btn-secondary">Start Project</a>
+        </div>
+        <div class="brand-logos">
+          <img src="img/shopify.png" alt="Shopify">
+          <img src="img/slack.png" alt="Slack">
+          <img src="img/upwork.png" alt="Upwork">
+          <img src="img/envato.png" alt="Envato">
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="img/hero-person.png" alt="Person Design" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services dark">
+    <div class="container">
+      <h2 class="section-title">
+        We deploy world-class <span>Creative Design</span> team on demand.
+      </h2>
+      <p class="section-subtitle">
+        That can design, build, ship and scale your vision in the most efficient way.
+      </p>
+      <div class="stats">
+        <div class="stat-box">
+          <h3>100%</h3>
+          <p>Client Satisfaction</p>
+        </div>
+        <div class="stat-box">
+          <h3>1200+</h3>
+          <p>Projects Done</p>
+        </div>
+        <div class="stat-box">
+          <h3>1800+</h3>
+          <p>Happy Clients</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="expertise">
+    <div class="container">
+      <h2 class="section-title">Experts in every aspect lifecycle</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Ideation & Evaluation</h3>
+          <p>Ideas that align with your goals, researched and tested.</p>
+        </div>
+        <div class="card">
+          <h3>Design Development</h3>
+          <p>UX/UI, branding, and responsive layouts tailored to you.</p>
+        </div>
+        <div class="card">
+          <h3>Online Marketing</h3>
+          <p>SEO, ads, content and everything to grow online presence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creative Work Section -->
+  <section class="portfolio">
+    <div class="container">
+      <h2 class="section-title">Creative work.</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <h3>Mobile Website</h3>
+          <p>Fully responsive and beautifully designed mobile-first websites.</p>
+        </div>
+        <div class="portfolio-card">
+          <h3>Hosting Website Design</h3>
+          <p>Modern and clean designs for hosting platforms and services.</p>
+        </div>
+        <div class="portfolio-card">
+          <h3>Full Case Website</h3>
+          <p>Full-stack showcase websites for products and services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials dark">
+    <div class="container">
+      <h2 class="section-title">Customer feedback</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p>"They delivered a beautiful product. Our clients love it."</p>
+          <h4>Anna Moore</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Great attention to detail, fast and responsive team."</p>
+          <h4>James Howard</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Best agency I've worked with. Highly recommended!"</p>
+          <h4>Kate Young</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="blog">
+    <div class="container">
+      <h2 class="section-title">Recent blog post</h2>
+      <div class="blog-grid">
+        <div class="blog-post">
+          <img src="img/blog1.jpg" alt="Blog 1">
+          <h3>How To Build Strong Customer Relationships</h3>
+        </div>
+        <div class="blog-post">
+          <img src="img/blog2.jpg" alt="Blog 2">
+          <h3>Shoes at the University of Michigan Startup</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2>Get latest updates and deals</h2>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer dark">
+    <div class="container">
+      <p>More than 10 years in the game and we’re just getting started.</p>
+      <a href="#" class="btn btn-secondary">Contact Us</a>
+      <div class="footer-bottom">
+        <div class="logo">Collax</div>
+        <div class="footer-links">
+          <a href="#">License</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
 </body>
 </html>
