@@ -1,187 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Collax - Creative Design Agency</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kement Studios - Dijital Ajans</title>
+    <meta name="description" content="Kement Studios, dijital ajans hizmetleri sunar: profesyonel web tasarımı, hızlı web sitesi kurulumu, mobil uygulama tasarımı (UI/UX), SEO çalışmaları ve kullanıcı dostu e-ticaret sitesi çözümleriyle markanızı dijitale taşıyın.">
+    <meta name="keywords" content="dijital ajans, web tasarımı, website kurulum, arayüz tasarımı, SEO, e-ticaret sitesi, mobil uygulama tasarımı, UI UX">
+    <link rel="icon" href="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" type="image/png">
+    <style>
+</style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" alt="Kement Studios Logo" class="logo">
+            <nav>
+                <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+                <ul id="nav-menu">
+                    <li><a href="#home">Anasayfa</a></li>
+                    <li><a href="#services">Hizmetler</a></li>
+                    <li><a href="#projects">Projeler</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Navbar -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">Collax</div>
-      <nav class="nav">
-        <ul class="nav-links" id="nav-menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Service</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="hamburger"></div>
-      </nav>
-    </div>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>KEMENT STUDIOS</h1>
+                <p>Markanızı dijitale taşıyın, fark yaratmaya hemen başlayın! Kement Studios'da uzman ekibimizle birlikte dijital dünyanın sınırsız olanaklarını keşfedin.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary">Hizmetlerimizi Keşfet</a>
+                    <a href="#about" class="btn-secondary">
+                        <span>Hakkımızda</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <h3>Dijital Çözümler</h3>
+                    <p>Web tasarımından mobil uygulamalara, SEO'dan e-ticarete kadar tüm dijital ihtiyaçlarınız için tek adres.</p>
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-element">🚀</div>
+                    <div class="floating-element">💻</div>
+                    <div class="floating-element">🎨</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>We make things look good</h1>
-        <p>We design, develop and deliver beautiful websites and digital experiences.</p>
-        <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">Talk to us</a>
-          <a href="#" class="btn btn-secondary">Start Project</a>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <h2 class="stats-title">Dünya standartlarında <span class="highlight">Dijital Tasarım Ekibi</span> talep üzerine.</h2>
+            <p class="stats-subtitle">Vizyonunuzu en verimli şekilde tasarlayabilen, geliştirebilen, sunabilen ve ölçeklendirebilen ekibimiz.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Müşteri Memnuniyeti</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Tamamlanan Proje</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Tasarım Kaynağı</div>
+                </div>
+            </div>
         </div>
-        <div class="brand-logos">
-          <img src="img/shopify.png" alt="Shopify">
-          <img src="img/slack.png" alt="Slack">
-          <img src="img/upwork.png" alt="Upwork">
-          <img src="img/envato.png" alt="Envato">
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="img/hero-person.png" alt="Person Design" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services Section -->
-  <section class="services dark">
-    <div class="container">
-      <h2 class="section-title">
-        We deploy world-class <span>Creative Design</span> team on demand.
-      </h2>
-      <p class="section-subtitle">
-        That can design, build, ship and scale your vision in the most efficient way.
-      </p>
-      <div class="stats">
-        <div class="stat-box">
-          <h3>100%</h3>
-          <p>Client Satisfaction</p>
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <div class="services-header">
+                <div class="subtitle">Neler Yapıyoruz?</div>
+                <h2 class="services-title">Her alanda uzman<br>yaşam döngüsü</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="services-content">
+                    <div class="service-item">
+                        <h3>Web Tasarım & Geliştirme</h3>
+                        <p>Kurumsal Web Sitesi Tasarımı, Mobil Uyumluluk (Responsive Design), Kullanıcı Deneyimi (UX) ve Arayüz Tasarımı (UI), Hızlı ve Güvenli Site Kurulumu</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>E-Ticaret Çözümleri</h3>
+                        <p>E-Ticaret Sitesi Kurulumu, Ürün Sayfası ve Sepet Tasarımları, Kullanıcı Dostu Alışveriş Deneyimi, Ödeme Sistemi Entegrasyonu</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Mobil Uygulama Tasarımı</h3>
+                        <p>iOS ve Android için Arayüz Tasarımı, Prototipleme (Figma, Adobe XD), Kullanıcı Deneyimi Odaklı Tasarımlar</p>
+                    </div>
+                    <a href="#contact" class="btn-primary">Tüm Hizmetleri Gör</a>
+                </div>
+                
+                <div class="services-visual">
+                    <div class="services-visual-card">
+                        <h3>Fikir Geliştirme & Değerlendirme</h3>
+                        <p>Kement Studios'da tasarlama, geliştirme, sunma ve güzel, kullanışlı ürünleri hızlı verimlilikle ölçeklendirme konusunda uzmanız.</p>
+                        <br>
+                        <p>Kement Studios'da tasarlama, geliştirme, sunma ve ölçeklendirme konusunda uzmanız.</p>
+                        <br>
+                        <a href="#" style="color: #6366f1; text-decoration: none; font-weight: 600;">→ Daha Fazla Bilgi</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="stat-box">
-          <h3>1200+</h3>
-          <p>Projects Done</p>
-        </div>
-        <div class="stat-box">
-          <h3>1800+</h3>
-          <p>Happy Clients</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Expertise Section -->
-  <section class="expertise">
-    <div class="container">
-      <h2 class="section-title">Experts in every aspect lifecycle</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Ideation & Evaluation</h3>
-          <p>Ideas that align with your goals, researched and tested.</p>
-        </div>
-        <div class="card">
-          <h3>Design Development</h3>
-          <p>UX/UI, branding, and responsive layouts tailored to you.</p>
-        </div>
-        <div class="card">
-          <h3>Online Marketing</h3>
-          <p>SEO, ads, content and everything to grow online presence.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Creative Work Section -->
-  <section class="portfolio">
-    <div class="container">
-      <h2 class="section-title">Creative work.</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-card">
-          <h3>Mobile Website</h3>
-          <p>Fully responsive and beautifully designed mobile-first websites.</p>
-        </div>
-        <div class="portfolio-card">
-          <h3>Hosting Website Design</h3>
-          <p>Modern and clean designs for hosting platforms and services.</p>
-        </div>
-        <div class="portfolio-card">
-          <h3>Full Case Website</h3>
-          <p>Full-stack showcase websites for products and services.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials dark">
-    <div class="container">
-      <h2 class="section-title">Customer feedback</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial">
-          <p>"They delivered a beautiful product. Our clients love it."</p>
-          <h4>Anna Moore</h4>
-        </div>
-        <div class="testimonial">
-          <p>"Great attention to detail, fast and responsive team."</p>
-          <h4>James Howard</h4>
-        </div>
-        <div class="testimonial">
-          <p>"Best agency I've worked with. Highly recommended!"</p>
-          <h4>Kate Young</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog -->
-  <section class="blog">
-    <div class="container">
-      <h2 class="section-title">Recent blog post</h2>
-      <div class="blog-grid">
-        <div class="blog-post">
-          <img src="img/blog1.jpg" alt="Blog 1">
-          <h3>How To Build Strong Customer Relationships</h3>
-        </div>
-        <div class="blog-post">
-          <img src="img/blog2.jpg" alt="Blog 2">
-          <h3>Shoes at the University of Michigan Startup</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter -->
-  <section class="newsletter">
-    <div class="container">
-      <h2>Get latest updates and deals</h2>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer dark">
-    <div class="container">
-      <p>More than 10 years in the game and we’re just getting started.</p>
-      <a href="#" class="btn btn-secondary">Contact Us</a>
-      <div class="footer-bottom">
-        <div class="logo">Collax</div>
-        <div class="footer-links">
-          <a href="#">License</a>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Script -->
-  <script src="script.js"></script>
-</body>
-</html>
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="projects-container">
+            <div class="projects-header">
+                <div class="subtitle">Projelerimiz</div>
+                <h2 class="projects-title">Başarılı Projeler</h2>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://ik.imagekit.io/kementstudios/sorsana.png')"></div>
+                    <div class="project-content">
+                        <h3>Mobil Uygulama Tasarımı</h3>
+                        <p>Mobil uygulamanın arayüz tasarımları yeniden yapıldı.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://ik.imagekit.io/kementstudios/webtasarim.png')"></div>
+                    <div class="project-content">
+                        <h3>Web Tasarım</h3>
+                        <p>Markanın imaj
